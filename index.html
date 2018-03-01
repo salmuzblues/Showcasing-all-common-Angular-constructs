@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- that bootstraps the application and tells angular that a DOM
+element is controlled by a specific angular.module named "myDemoApp";-->
+<html ng-app="myDemoApp">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello, Angular</title>
+    <!--Load the Angular framework from a Content Delivery Network. -->
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- ng-class is the ngClass directive to set a dynamic class 'started' , and in this example utilizes hasStarted on the
+$rootScope dynamically.
+
+ng-cloak is a directive to prevent the unrendered Angular html template (e.g. "{{ msg }}") to be briefly
+shown before Angular has fully loaded the application.
+
+ng-controller is the directive that asks Angular to instantiate a new controller of specific name to
+orchestrate that part of the DOM.
+
+ng-repeat is the directive to make Angular iterate over a collection and clone a DOM template for each item
+
+ {{ msg }} showcases interpolation: on-the-spot rendering of a part of the scope or controller;-->
+<body ng-class="{ 'started': hasStarted }" ng-cloak>
+<div ng-controller="demoController as vm">
+<ul>
+    <li ng-repeat="msg in vm.messages">{{ msg }}</li>
+</ul>
+</div>
+</body>
+</html>
